@@ -27,7 +27,7 @@
           <strong><%= link_to c.title, event_path(:id=>c.id) %></strong>
         </h5>
         <p><%= truncate(c.description, :length => 75 ) { link_to "Continue", event_path(:id=>c.id) } %></p>
-        <p style="font-style: italic; color: blueviolet; font-weight: bold;"><%= countdown[:diff] + " left"%></p>
+        <h4><p class="count-down" style="font-style: italic; color: PaleVioletRed; font-weight: bold;"><%= countdown[:diff] + " left"%></p></h4>
         </br>
         </br>
       </div>

@@ -1,5 +1,7 @@
 <div class="container">
-  <h2>Update Event</h2>
+</br>
+  <div class="rounded-border">
+  <h3>Update Event</h3>
   <%= form_for @event, :url =>{:action => "update", :id =>@event}, html: { multipart: true} do |f| %>
     <%if @event.errors.any? %>
       <div class="alert alert-danger">
@@ -40,5 +42,6 @@
           <%= f.submit 'Update event', :class=> 'btn btn-default' %>
           <%= link_to "Back", index_path, :class=> 'btn btn-default' %>
         <% end %>
+      </div>
       </div>
       </br>
