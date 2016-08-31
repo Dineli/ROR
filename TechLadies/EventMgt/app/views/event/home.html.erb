@@ -5,9 +5,9 @@
   <!-- Page Header -->
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">Upcoming Events
-<%#*<small>Secondary Text</small>%>
-      </h1>
+    <%if (@events.size != 0)%>
+      <h1 class="page-header">Upcoming Events </h1>
+      <%#*<small>Secondary Text</small>%>
     </div>
   </div>
   <!-- /.row -->
@@ -16,7 +16,7 @@
   <div class="row">
     <%  current_date = Time.now.strftime('%Y-%m-%d')%>
     <% @events.each do |c| %>
-      <%
+    <%
       event_date = c.date.strftime('%Y-%m-%d')
       countdown = Time.diff(Time.parse(current_date),Time.parse(event_date), '%y, %M, %d')
     %>
@@ -35,6 +35,12 @@
     </br>
   </div>
   <hr>
+  <%else%>
+  </br>
+  <div class="alert alert-danger">
+    <strong>Sorry...no result found for the search key word <i>'<%= params[:search] %>'</i></strong>
+  </div>
+   <%end%>
 </div>
 
 
