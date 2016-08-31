@@ -5,9 +5,6 @@ class EventController < ApplicationController
     @events = Event.all.sort_by &:date 
     if params[:search]
       @events = Event.search(params[:search])
-      if @events.size.zero?
-        flash.now[:notice] = "No result found for the search key word '#{params[:search]}'" 
-      end
     end
   end
 
