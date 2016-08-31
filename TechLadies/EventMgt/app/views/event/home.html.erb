@@ -1,0 +1,47 @@
+<!-- Page Content -->
+<%  require 'time_diff' %>
+<div class="container">
+
+  <!-- Page Header -->
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Upcoming Events
+<%#*<small>Secondary Text</small>%>
+      </h1>
+    </div>
+  </div>
+  <!-- /.row -->
+
+  <!-- Projects Row -->
+  <div class="row">
+    <%  current_date = Time.now.strftime('%Y-%m-%d')%>
+    <% @events.each do |c| %>
+      <%
+      event_date = c.date.strftime('%Y-%m-%d')
+      countdown = Time.diff(Time.parse(current_date),Time.parse(event_date), '%y, %M, %d')
+    %>
+      <div class="col-md-4 portfolio-item">
+        <%= image_tag c.image.url(:medium), :class=>"img-responsive" %>
+           <%#*<img class="img-responsive" src="http://placehold.it/700x400" alt="">%>
+        <h5>
+          <strong><%= link_to c.title, event_path(:id=>c.id) %></strong>
+        </h5>
+        <p><%= truncate(c.description, :length => 75 ) { link_to "Continue", event_path(:id=>c.id) } %></p>
+        <p style="font-style: italic; color: blueviolet; font-weight: bold;"><%= countdown[:diff] + " left"%></p>
+        </br>
+        </br>
+      </div>
+    <%end%>
+    </br>
+  </div>
+  <hr>
+</div>
+
+
+<script type="text/javascript"> 
+  $(document).ready(function(){
+
+  });
+</script>
+
+
