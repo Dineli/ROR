@@ -1,5 +1,6 @@
 class EventController < ApplicationController
   before_action :find_id, only: [:edit, :update, :destroy, :show]
+  before_filter :authorize, only: [:index]
    
   def home
     @events = Event.all.sort_by &:date 
@@ -26,7 +27,7 @@ class EventController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      flash[:notice] = "Record successfully created"
+      flash[:success] = "Record successfully created"
       redirect_to :action => 'index'
     else
       render :action => "new"
@@ -40,7 +41,7 @@ class EventController < ApplicationController
   def update
     find_id
     if @event.update(event_params)
-      flash[:notice] = "Record successfully updated"
+      flash[:success] = "Record successfully updated"
       redirect_to :action => 'index'
     else
       render :action => 'edit'
@@ -50,7 +51,7 @@ class EventController < ApplicationController
   def destroy
     find_id
     @event.destroy
-    flash[:notice] = "Record successfully deleted"
+    flash[:success] = "Record successfully deleted"
     redirect_to :action => 'index' 
   end
   
