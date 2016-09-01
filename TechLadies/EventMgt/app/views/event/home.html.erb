@@ -17,37 +17,33 @@
     <%  current_date = Time.now.strftime('%Y-%m-%d')%>
     <% @events.each do |c| %>
     <%
-      event_date = c.date.strftime('%Y-%m-%d')
-      countdown = Time.diff(Time.parse(current_date),Time.parse(event_date), '%y, %M, %d')
+    event_date = c.date.strftime('%Y-%m-%d')
+    countdown = Time.diff(Time.parse(current_date),Time.parse(event_date), '%y, %M, %d')
     %>
-      <div class="col-md-4 portfolio-item">
-        <%= image_tag c.image.url(:medium), :class=>"img-responsive" %>
-           <%#*<img class="img-responsive" src="http://placehold.it/700x400" alt="">%>
-        <h5>
-          <strong><%= link_to c.title, event_path(:id=>c.id) %></strong>
-        </h5>
-        <p><%= truncate(c.description, :length => 75 ) { link_to "Continue", event_path(:id=>c.id) } %></p>
-        <h4><p class="count-down" style="font-style: italic; color: PaleVioletRed; font-weight: bold;"><%= countdown[:diff] + " left"%></p></h4>
-        </br>
-        </br>
-      </div>
-    <%end%>
+    <div class="col-md-4 portfolio-item">
+      <h4><strong><%= link_to c.title, event_path(:id=>c.id) %></strong></h4>
+      <h4><p class="count-down" style="font-style: italic; color: PaleVioletRed; font-weight: bold;"><%= countdown[:diff] + " left"%></p></h4>
+      <ul class="demo-3">
+        <li>
+          <figure>
+            <%= image_tag c.image.url(:medium), :class=>"img-responsive" %>
+            <figcaption>
+              <p><font size="3"><%= truncate(c.description, :length => 175 ) { link_to "Continue", event_path(:id=>c.id) } %></font></p>
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
     </br>
   </div>
-  <hr>
-  <%else%>
-  </br>
-  <div class="alert alert-danger">
-    <strong>Sorry...no result found for the search key word <i>'<%= params[:search] %>'</i></strong>
-  </div>
-   <%end%>
+  <%end%>
+</br>
 </div>
-
-
-<script type="text/javascript"> 
-  $(document).ready(function(){
-
-  });
-</script>
-
+<hr>
+<%else%>
+</br>
+<div class="alert alert-danger">
+  <strong>Sorry...no result found for the search key word <i>'<%= params[:search] %>'</i></strong>
+</div>
+<%end%>
+</div>
 
