@@ -8,13 +8,32 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <div class="navbar-brand"><%= link_to "Events.sg ~One Stop Event Shop~", home_path %></div>
+      <div class="navbar-brand">
+      <% if current_user %>
+        <%= link_to "Eventz.sg - ADMIN PORTAL", home_path %> 
+      <% else %>
+        <%= link_to "Eventz.sg", home_path %> 
+      <% end %> 
+      </div>
     </div>
+
+    <div class="pull-left user-name">
+        <% if current_user %>
+          Signed as  <%= current_user.name %> 
+       <% end %> 
+    </div>
+
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Event Management", index_path %></li> 
-        <li><%= link_to "Contact Us", contact_path %></li>
+        <% if current_user %>
+           <li><%= link_to "Event Management", index_path %></li>
+           <li><%= link_to "Logout", logout_path %></li> 
+        <% else %>
+           <li><%= link_to "Home", home_path %></li>
+           <li><%= link_to "Contact Us", contact_path %></li>
+           <li><%= link_to 'Login', login_path %> </li>
+        <% end %>
       </ul>
 
       <div class="pull-right">
