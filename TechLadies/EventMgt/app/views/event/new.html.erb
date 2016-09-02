@@ -1,7 +1,7 @@
 <div class="container">
 </br>
   <div class="rounded-border">
-  <h3>Create an Event</h3>
+  <h3>CREATE AN EVENT</h3>
   <%= form_for @event, :url =>{:action => "create", :id =>@event}, html: { multipart: true} do |f| %>
     <%if @event.errors.any? %>
       <div class="alert alert-danger">
@@ -24,11 +24,6 @@
       <%= f.text_area :description, class: 'form-control', placeholder: "Enter event details"%>
     </div> 
       
-    <%#*<div class="form-group">%>
-      <%#= f.label :category %>
-      <%#= select_tag "category", options_for_select([['Please Select', 0], ['Arts', 1], ['Concerts', 2], ['Life style/Leisure', 3], ['Science & Tech', 4], ['Sports', 5]]), :class=> 'form-control'%>
-    <%#*</div>%> 
-      
     <div class="form-group">
       <%= f.label :image %>
       <%= f.file_field :image, class: 'btn btn-default btn-file'%>
@@ -38,8 +33,8 @@
       <%= f.label :event_date %></br>
       <%= f.datetime_select :date, {:ampm => true, :minute_step => 15}, {:order => [:day, :month, :year],  :start_year=> Time.now.year, :end_year=> Time.now.year + 2 }%>
       </div> 
-        <%= f.submit 'Create event', :class=> 'btn btn-default' %>
-        <%= link_to "Back", index_path, :class=> 'btn btn-default' %>
+        <%= f.submit 'Create Event', :class=> 'btn btn-info' %>
+        <%= link_to "Back", index_path, :class=> 'btn btn-info' %>
     <% end %>
     </div>
   </div>

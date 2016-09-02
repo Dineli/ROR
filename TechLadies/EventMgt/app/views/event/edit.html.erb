@@ -1,47 +1,41 @@
 <div class="container">
 </br>
-  <div class="rounded-border">
-  <h3>Update Event</h3>
+<div class="rounded-border">
+<h3>UPDATE EVENT</h3>
   <%= form_for @event, :url =>{:action => "update", :id =>@event}, html: { multipart: true} do |f| %>
-    <%if @event.errors.any? %>
-      <div class="alert alert-danger">
-        <strong>Incorrect data entry :</strong>
-        <ul>
-          <% @event.errors.full_messages.each do |msg| %>
-            <p>- <%= msg %></p>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+  <%if @event.errors.any? %>
+  <div class="alert alert-danger">
+    <strong>Incorrect data entry :</strong>
+    <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+      <p>- <%= msg %></p>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
 
-    <div class="form-group">
-      <%= f.label :title %>
-      <%= f.text_field :title, class: 'form-control', placeholder: "Enter event title"%>
-      </div> 
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control', placeholder: "Enter event title"%>
+  </div> 
 
-      <div class="form-group">
-        <%= f.label :description %>
-        <%= f.text_area :description, class: 'form-control', placeholder: "Enter event details"%>
-        </div> 
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control', placeholder: "Enter event details"%>
+  </div> 
 
-      <%#*<div class="form-group">%>
-      <%#= f.label :category %>
-      <%#= select_tag "category", "<option>Arts</option><option>Concerts</option><option>Life style/Leisure</option><option>Science & Tech</option><option>Sports    </option>".html_safe, :class=> 'form-control'%>
-      <%#= select_tag "category", options_for_select([['Please Select', 0], ['Arts', 1], ['Concerts', 2], ['Life style/Leisure', 3], ['Science & Tech', 4], ['Sports', 5]]), :class=> 'form-control'%>
-      <%#*</div>%> 
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: 'btn btn-default btn-file'%>
+  </div> 
 
-        <div class="form-group">
-          <%= f.label :image %>
-          <%= f.file_field :image, class: 'btn btn-default btn-file'%>
-          </div> 
-
-          <div class="form-group">
-            <%= f.label :event_date %></br>
-            <%= f.datetime_select :date, {:ampm => true, :minute_step => 15}, {:order => [:day, :month, :year],  start_year: Date.today.year, end_year: Date.today.year + 2 }%>
-          </div> 
-          <%= f.submit 'Update event', :class=> 'btn btn-default' %>
-          <%= link_to "Back", index_path, :class=> 'btn btn-default' %>
-        <% end %>
-      </div>
-      </div>
-      </br>
+  <div class="form-group">
+    <%= f.label :event_date %></br>
+    <%= f.datetime_select :date, {:ampm => true, :minute_step => 15}, {:order => [:day, :month, :year],  start_year: Date.today.year, end_year: Date.today.year + 2 }%>
+  </div> 
+  <%= f.submit 'Update event', :class=> 'btn btn-info' %>
+  <%= link_to "Back", index_path, :class=> 'btn btn-info' %>
+  <% end %>
+</div>
+</div>
+</br>
