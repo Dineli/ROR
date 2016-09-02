@@ -1,18 +1,18 @@
 <div class="container">
 		<%= form_tag '/login', class:'form-login' do %>
-		<h1>Login</h1>
+		<h1>LOGIN</h1>
 
 		<div class="form-group">
-			<%= label_tag 'USER NAME'%>
+			<%= label_tag 'USER NAME', 'USER NAME'%>
 			<%= text_field_tag :name,  nil, class: 'form-control' %>
 		</div>
 		<div class="form-group">
-			<%= label_tag 'PASSWORD'%>
+			<%= label_tag 'PASSWORD','PASSWORD'%>
 			<%= password_field_tag :password,  nil, class: 'form-control' %>
 		</div>
 
-		<%= submit_tag "Submit", :class=> 'btn btn-default' %>
-		<%= button_tag "Reset", :type => 'button', :class=> 'btn btn-default', :id => "position_cancel" %>
+		<%= submit_tag "Submit", :class=> 'btn btn-info' %>
+		<%= button_tag "Reset", :type => 'button', :class=> 'btn btn-info', :id => "position_cancel" %>
 		<% end %>
 </div>
 
