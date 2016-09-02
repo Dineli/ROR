@@ -26,7 +26,7 @@
       <ul class="demo-3">
         <li>
           <figure>
-            <%= image_tag c.image.url(:medium), :class=>"img-responsive" %>
+            <%= image_tag c.image.url, :class=>"img-responsive" %>
             <figcaption>
               <p><font size="3"><%= truncate(c.description, :length => 175 ) { link_to "Continue", event_path(:id=>c.id) } %></font></p>
             </figcaption>
