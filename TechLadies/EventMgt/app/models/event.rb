@@ -20,7 +20,7 @@ class Event < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('title LIKE ?', "%#{search}%")
+      where('LOWER(title) LIKE  ?', "%#{search}%")
     else
       all
     end
