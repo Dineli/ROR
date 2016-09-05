@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Event Management</title>
-  <%#*<link href="/assets/half-slider.css" rel="stylesheet">%>
+  <title>Eventz : Your one stop events shop!</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <script src="/assets/jquery.min.js"></script>
    <%= csrf_meta_tags %>
 </head>
 <body>
-
 <%= render 'common/navbar' %>
 <%= render 'common/slider' %>
 <%= render "layouts/flash_msg" %>
 <%= yield %>
-
 </body>
 </html>
