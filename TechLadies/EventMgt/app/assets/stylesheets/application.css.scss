@@ -57,6 +57,9 @@ div.rounded-border{
 
 p.count-down {
     text-transform: uppercase;
+    font-style: italic;
+    color: #c246c6; 
+    font-weight: bold;
 }
 
 .navbar-default {
@@ -106,7 +109,8 @@ p.count-down {
     height:200px;
     overflow:hidden;
     float:left;
-    margin-right:20px
+    margin-right:20px;
+    list-style-type: none;
 }
 .demo-3 figure {
     margin:0;
@@ -132,14 +136,14 @@ p.count-down {
     box-sizing:border-box
 }
 .demo-3 figure h2 {
-    font-family:'Lato';
+    font-family:'Lato', Calibri, Arial, sans-serif;
     color:#fff;
     font-size:20px;
     text-align:left
 }
 .demo-3 figure p {
     display:block;
-    font-family:'Lato';
+    font-family:'Lato', Calibri, Arial, sans-serif;
     font-size:12px;
     line-height:18px;
     margin:0;
@@ -166,7 +170,7 @@ p.count-down {
     backface-visibility:hidden;
     -webkit-transition:all .5s;
     -moz-transition:all .5s;
-    transition:all .5s
+    transition:all .5s;
 }
 .demo-3 figure:hover img,figure.hover img {
     -webkit-transform:rotateY(180deg);
@@ -185,11 +189,11 @@ p.count-down {
 }
 
 .navbar-brand{
-    padding : 0px;
+   padding : 0px;
 }
 
 .label-header {
-    background-color: #7e6bc4;
+   background-color: #7e6bc4;
 }
 
 .btn{
@@ -205,4 +209,25 @@ p.count-down {
 .table > thead{
   font-weight: bold;  
   text-transform: uppercase;   
+}
+
+pre {
+  display: block;
+  font-family: 'Lato', Calibri, Arial, sans-serif;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  border: 0;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  word-break: keep-all;
+  white-space: pre-line;
+  text-align: justify;
+  margin-left: -9px;
+}
+
+.hour-count-blink{
+  font-style: italic;
+  color: #c9182b; 
+  font-weight: bold;
+  text-transform: uppercase;
 }
