@@ -3,11 +3,3 @@
  * and open the template in the editor.
  */
 
-
-//$(function () { 
-//    $('#countdown').countdown({
-//        until: liftoffTime, 
-//        format: 'dHM'
-//    });
-//});
-
