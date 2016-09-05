@@ -4,14 +4,15 @@
     <div class="panel panel-info">
       <div class="panel-heading"><h4><%= @event.title %></h4></div>
       <div class="panel-body">
-        <div class="section1" style="float:left; width: 70%;">
-          <b>Event Details : </b> </br><%= @event.description %></br>
+        <div class="section1" style="float:left; width: 65%;">
+          <b>Event Details : </b> 
+          <pre><%= @event.description %></pre>
           <b>Date :</b> </br><%= @event.date.strftime("%Y-%m-%d") %></br>
           <b>Time :</b> </br><%= @event.date.strftime("%H:%M %p") %>
           </br></br></br></br>
           <%= link_to "Back", home_path, :class=> 'btn btn-default' %>
         </div>
-        <div class="section2" style="float:right; width: 30%;">
+        <div class="section2" style="float:right; width: 35%;">
           <%= image_tag @event.image.url(:medium) %>
         </div>
       </div>

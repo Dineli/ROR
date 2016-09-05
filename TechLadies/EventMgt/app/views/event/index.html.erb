@@ -16,7 +16,15 @@
     <tbody>
        <% @events.each do |c| %>
       <tr>
-        <td class="col-md-2"><%= c.title %></td>
+      <%
+        current_date = Time.now.strftime('%Y-%m-%d')
+        event_date = c.date.strftime('%Y-%m-%d')
+        is_expired = false
+        if event_date < current_date
+          is_expired = true
+        end
+      %>
+        <td class="col-md-2"><%= c.title %> <%if is_expired%><span class="label label-danger">EXPIRED!!!</span><%end%></td>
         <td class="col-md-6"><%= c.description %></td>
         <td><%= c.date.strftime("%Y-%m-%d") %></td>
         <td><%= c.date.strftime("%H:%M %p") %></td>
